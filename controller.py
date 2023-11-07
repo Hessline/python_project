@@ -1,9 +1,9 @@
 import view
 from model import Model
 
-
-
 model = Model()
+
+
 def display_login(event):
     selected_indices = view.login_listbox.curselection()
     if selected_indices:
@@ -88,3 +88,7 @@ def import_login_data():
 # Initialisiere die Login-Liste
 for login in model.login_data:
     view.login_listbox.insert(view.tk.END, login["Website"])
+
+
+def generate_random_login():
+    return None
