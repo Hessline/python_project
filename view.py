@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import Listbox, Scrollbar, Entry, Button, Label, messagebox
 from tkinter import filedialog
 
-#Dummy-Login-Daten
+#Login-Daten Array
 login_data = []
 
 def display_login(event):
