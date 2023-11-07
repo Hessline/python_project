@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import Listbox, Scrollbar, Entry, Button, Label, messagebox
 from tkinter import filedialog
 
-# Dummy-Login-Daten
+#Dummy-Login-Daten
 login_data = []
 
 def display_login(event):
@@ -20,7 +20,7 @@ def display_login(event):
         # Zeige eine Meldung oder führe eine andere Aktion aus, wenn keine Elemente ausgewählt wurden
         pass
 
-# Create a function to set a common width for buttons
+#Create a function to set a common width for buttons
 def set_button_width(button):
     button.config(width=18)
 
