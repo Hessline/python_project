@@ -24,6 +24,7 @@ class Model:
             if login["Website"] == website:
                 self.login_data.remove(login)
         return f"Password for website {website} was deleted successfully"
+
     def get_passwords(self, master_password):
         if self.master_password == master_password:
             if not self.login_data:

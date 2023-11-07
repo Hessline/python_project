@@ -1,13 +1,9 @@
-import tkinter as tk
-from model import Model
-from view import View
-from controller import Controller
+import view
+
 
 def main():
-    #model = Model()
-    #controller = Controller(model, view)
-    view = View()
+    view.root.mainloop()
 
-if __name__ ==  "__main__":
+
+if __name__ == "__main__":
     main()
-
