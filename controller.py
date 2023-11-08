@@ -1,6 +1,6 @@
 import view
 from model import Model
-
+from model import generate_random_password
 model = Model()
 
 
@@ -92,3 +92,9 @@ for login in model.login_data:
 
 def generate_random_login():
     return None
+
+
+def generate_and_fill_password(password_entry):
+    password = generate_random_password(20)  # Ändere die Länge nach Bedarf
+    password_entry.delete(0, view.tk.END)  # Lösche den aktuellen Inhalt des Eingabefelds
+    password_entry.insert(0, password)

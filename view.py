@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import Listbox, Scrollbar, Entry, Button, Label, messagebox
 from tkinter import filedialog
 import controller
+from controller import generate_and_fill_password
 
 # GUI erstellen
 root = tk.Tk()
@@ -59,7 +60,7 @@ show_password_button.pack(anchor='w', padx=0, pady=(5, 15))
 set_button_width(show_password_button)
 
 # Random-Button
-random_button = Button(frame_right, text="Passwort generieren", command=controller.generate_random_login)
+random_button = Button(frame_right, text="Passwort generieren", command=lambda: controller.generate_and_fill_password(password_entry))
 random_button.pack(anchor='w', padx=0, pady=(0, 15))
 set_button_width(random_button)
 
@@ -75,10 +76,10 @@ set_button_width(delete_button)
 
 # Speichern-Button
 save_button = Button(frame_right, text="File Speichern", command=controller.save_login_data)
-save_button.pack(anchor='w', padx=0, pady=(0, 15))
+save_button.pack(anchor='e', padx=0, pady=(0, 15))
 set_button_width(save_button)
 
 # Import-Button erstellen
 import_button = Button(frame_right, text="File Importieren", command=controller.import_login_data)
-import_button.pack(anchor='w', padx=0, pady=(0, 0))
+import_button.pack(anchor='e', padx=0, pady=(0, 0))
 set_button_width(import_button)
