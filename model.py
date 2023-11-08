@@ -2,6 +2,10 @@ import random
 import string
 from cryptography.fernet import Fernet
 
+import view
+
+key = Fernet.generate_key()
+cipher_suite = Fernet(key)
 
 def generate_random_password(length):
     return "".join(random.choice(string.ascii_letters + string.digits) for _ in range(length))
@@ -30,4 +34,4 @@ class Model:
                 decrypted_data = cipher_suite.decrypt(encrypted_data)
                 return decrypted_data.decode()
         except Exception as e:
-            messagebox.showerror("Fehler", "Fehler beim Lesen oder Entschlüsseln der Datei: " + str(e))
+            view.messagebox.showerror("Fehler", "Fehler beim Lesen oder Entschlüsseln der Datei: " + str(e))
