@@ -7,7 +7,7 @@ from controller import generate_and_fill_password
 # GUI erstellen
 root = tk.Tk()
 root.title("Passwort Manager")
-
+root.resizable(False, False)
 
 # Create a function to set a common width for buttons
 def set_button_width(button):
