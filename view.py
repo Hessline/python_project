@@ -56,7 +56,7 @@ password_visible = tk.IntVar()
 
 # Button "Anzeigen/Verbergen" und "Random-Button" in einer eigenen Frame platzieren
 button_frame = tk.Frame(frame_right)
-button_frame.pack(anchor='w', padx=0, pady=(5, 25))
+button_frame.pack(anchor='w', padx=0, pady=(5, 15))
 
 show_password_button = Button(button_frame, text="Anzeigen/Verbergen", command=controller.toggle_password_visibility)
 show_password_button.pack(side="left", padx=0)
@@ -69,7 +69,7 @@ set_button_width(random_button)
 
 # Button "Hinzufügen" und "Löschen" in einer eigenen Frame platzieren
 ds_button_frame = tk.Frame(frame_right)
-ds_button_frame.pack(anchor='w', padx=0, pady=(0, 25))
+ds_button_frame.pack(anchor='w', padx=0, pady=(0, 15))
 
 # Button "Hinzufügen"
 add_button = Button(frame_right, text="Login Hinzufügen", command=controller.add_login)
@@ -78,12 +78,12 @@ set_button_width(add_button)
 
 # Button "Löschen"
 delete_button = Button(frame_right, text="Login Löschen", command=controller.delete_login)
-delete_button.pack(anchor='w', padx=0, pady=(0, 15))
+delete_button.pack(anchor='w', padx=0, pady=(0, 0))
 set_button_width(delete_button)
 
 # Button "Speichern" und "Import" in einer eigenen Frame platzieren
 file_button_frame = tk.Frame(frame_right)
-file_button_frame.pack(anchor="w", padx=0, pady=(0, 15))
+file_button_frame.pack(anchor='w', padx=0, pady=(0, 15))
 
 # Speichern-Button
 save_button = Button(frame_right, text="File Speichern", command=controller.save_login_data)

@@ -1,6 +1,9 @@
+from tkinter import filedialog
+
 import view
 from model import Model
 from model import generate_random_password
+
 model = Model()
 
 
@@ -98,3 +101,23 @@ def generate_and_fill_password(password_entry):
     password = generate_random_password(20)  # Ändere die Länge nach Bedarf
     password_entry.delete(0, view.tk.END)  # Lösche den aktuellen Inhalt des Eingabefelds
     password_entry.insert(0, password)
+
+
+# Speichern-Button
+def save_login_data():
+    file_path = filedialog.asksaveasfilename(defaultextension=".enc", filetypes=[("Verschlüsselte Dateien", "*.enc")])
+
+    if file_path:
+        data_to_save = "Website: {}\nUsername: {}\nPassword: {}\n".format(view.website_entry.get(), view.username_entry.get(),
+                                                                          view.password_entry.get())
+        model.encrypt_and_save_data(data_to_save, file_path)
+
+
+# Import-Button
+def import_login_data():
+    file_path = filedialog.askopenfilename(filetypes=[("Verschlüsselte Dateien", "*.enc")])
+
+    if file_path:
+        decrypted_data = model.load_and_decrypt_data(file_path)
+        if decrypted_data:
+    # Verarbeiten Sie die entschlüsselten Daten, um Website, Benutzername und Passwort anzuzeigen oder zu speichern.
