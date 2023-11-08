@@ -1,11 +1,14 @@
 import random
 import string
 from cryptography.fernet import Fernet
+import hashlib, base64
 
 import view
 
-key = b'gyITGalfSrCSGtkvHj25Y66aBIwfGv-RgphICyzvslU='
-print(key)
+my_password = 'Our super duper key'
+key = hashlib.md5(my_password).hexdigest()
+key_64 = base64.urlsafe_b64encode(key)
+
 cipher_suite = Fernet(key)
 
 def generate_random_password(length):
