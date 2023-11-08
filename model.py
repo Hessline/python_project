@@ -4,7 +4,8 @@ from cryptography.fernet import Fernet
 
 import view
 
-key = Fernet.generate_key()
+key = b'gyITGalfSrCSGtkvHj25Y66aBIwfGv-RgphICyzvslU='
+print(key)
 cipher_suite = Fernet(key)
 
 def generate_random_password(length):
@@ -21,13 +22,13 @@ class Model:
         self.login_data.pop(index)
 
     # Funktion zum Verschlüsseln von Daten und Speichern in einer Datei
-    def encrypt_and_save_data(data, file_path):
+    def encrypt_and_save_data(self, data, file_path):
         encrypted_data = cipher_suite.encrypt(data.encode())
         with open(file_path, "wb") as file:
             file.write(encrypted_data)
 
     # Funktion zum Lesen und Entschlüsseln von Daten aus einer Datei
-    def load_and_decrypt_data(file_path):
+    def load_and_decrypt_data(self, file_path):
         try:
             with open(file_path, "rb") as file:
                 encrypted_data = file.read()

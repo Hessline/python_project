@@ -120,5 +120,33 @@ def import_login_data():
     if file_path:
         decrypted_data = model.load_and_decrypt_data(file_path)
         if decrypted_data:
-            pass
-    # Verarbeiten Sie die entschlüsselten Daten, um Website, Benutzername und Passwort anzuzeigen oder zu speichern.
+            # Aufteilen der entschlüsselten Daten in Zeilen (z.B., durch Zeilenumbruch)
+            lines = decrypted_data.split('\n')
+
+            # Entfernen von leeren Zeilen, falls vorhanden
+            lines = [line.strip() for line in lines if line.strip()]
+
+            # Initialisieren von Variablen für Website, Benutzername und Passwort
+            website = None
+            username = None
+            password = None
+
+            # Durchlaufen der Zeilen, um die Daten zu extrahieren
+            for line in lines:
+                if line.startswith("Website: "):
+                    website = line[len("Website: "):]
+                elif line.startswith("Username: "):
+                    username = line[len("Username: "):]
+                elif line.startswith("Password: "):
+                    password = line[len("Password: "):]
+
+            if website and username and password:
+                # Hier haben Sie Website, Benutzername und Passwort
+                # Verarbeiten Sie die Daten, wie Sie es benötigen, z.B. anzeigen oder speichern
+                print("Website:", website)
+                print("Username:", username)
+                print("Password:", password)
+            else:
+                view.messagebox.showerror("Fehler", "Ungültiges Datenformat in der Datei.")
+        else:
+            view.messagebox.showerror("Fehler", "Fehler beim Entschlüsseln der Datei.")
