@@ -143,9 +143,8 @@ def import_login_data():
             if website and username and password:
                 # Hier haben Sie Website, Benutzername und Passwort
                 # Verarbeiten Sie die Daten, wie Sie es benötigen, z.B. anzeigen oder speichern
-                print("Website:", website)
-                print("Username:", username)
-                print("Password:", password)
+                model.add_password_details(website, username, password)
+                view.login_listbox.insert(view.tk.END, website)
             else:
                 view.messagebox.showerror("Fehler", "Ungültiges Datenformat in der Datei.")
         else:
